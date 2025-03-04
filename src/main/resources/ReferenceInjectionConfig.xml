@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--    bean for student class-->
+    <bean class="com.example.springDemo.referenceInjection.Course" name="courseReference">
+        <property name="courseName" value="Java oop"></property>
+    </bean>
+
+    <bean class="com.example.springDemo.referenceInjection.Student" name="studentReference">
+        <property name="studentName" value="Shyam" />
+        <property name="rollNo" value="5"></property>
+        <property name="course">
+            <ref bean="courseReference"></ref>
+        </property>
+    </bean>
+</beans>
