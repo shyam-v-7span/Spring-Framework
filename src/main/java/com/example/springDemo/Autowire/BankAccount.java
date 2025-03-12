@@ -19,8 +19,8 @@ public class BankAccount {
     public String getAccountHolderName() {
         return accountHolderName;
     }
-    @Autowired
-    public void setAccountHolderName(@Value("Ram") String accountHolderName) {
+
+    public void setAccountHolderName(String accountHolderName) {
         System.out.println("accountHolderName setter called");
         this.accountHolderName = accountHolderName;
     }
@@ -29,8 +29,8 @@ public class BankAccount {
         return balance;
     }
 
-    @Autowired
-    public void setBalance(@Value("50000") Double balance) {
+
+    public void setBalance(Double balance) {
         System.out.println("balance setter called");
         this.balance = balance;
     }
