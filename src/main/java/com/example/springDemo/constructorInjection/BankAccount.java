@@ -1,14 +1,22 @@
 package com.example.springDemo.constructorInjection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BankAccount {
 
     private String accountHolderName;
     private Double balance;
     private TransactionMessage transactionMessage;
 
-    public BankAccount(String accountHolderName, Double amount,TransactionMessage transactionMessage){
+    public BankAccount(
+            @Value("Shyam") String accountHolderName,
+            @Value("5000.0") Double balance,
+            TransactionMessage transactionMessage) {
         this.accountHolderName = accountHolderName;
-        this.balance = amount;
+        this.balance = balance;
         this.transactionMessage = transactionMessage;
     }
 
