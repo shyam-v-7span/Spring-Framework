@@ -1,14 +1,26 @@
 package com.example.springDemo.referenceInjection;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+@SpringBootApplication
 public class Test {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("ReferenceInjectionConfig.xml");
-        Student student = (Student) context.getBean("studentReference");
-        System.out.println("Name : "+student.getStudentName());
-        System.out.println("Roll no : "+student.getRollNo());
-        System.out.println("get Course name by reference :  "+student.getCourse().getCourseName());
+
+        ApplicationContext context = SpringApplication.run(Test.class,args);
+
+        // Get Student Bean
+        Student student = context.getBean(Student.class);
+
+        // Set Student Details
+        student.setStudentName("Utsav");
+        student.setRollNo(20);
+        student.getCourse().setCourseName("OOP with java");
+
+        // Print Student Details
+        System.out.println(student);
+        System.out.println("Course Name (Reference Injection): " + student.getCourse().getCourseName());
     }
 }
