@@ -1,11 +1,9 @@
 package com.example.springDemo.SetterInjection;
 
-import com.example.springDemo.referenceInjection.Course;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Student {
-
-    private Course course;
-
     private String studentName;
     private int rollNo;
 
@@ -16,10 +14,6 @@ public class Student {
     public void setStudentName(String studentName) {
         System.out.println("name added");
         this.studentName = studentName;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
     }
 
     public int getRollNo() {

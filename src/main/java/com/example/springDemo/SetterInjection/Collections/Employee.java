@@ -1,8 +1,11 @@
 package com.example.springDemo.SetterInjection.Collections;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Set;
 
+@Component
 public class Employee {
     private List<String> employeeNames;
     private Set<Integer> employeeIds;
@@ -21,5 +24,12 @@ public class Employee {
 
     public void setEmployeeIds(Set<Integer> employeeIds) {
         this.employeeIds = employeeIds;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "employeeNames = " + employeeNames +
+                ", employeeIds = " + employeeIds ;
     }
 }
